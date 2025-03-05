@@ -1,10 +1,11 @@
 'use client'
-import { Children, cloneElement } from 'react'
+import { Children, cloneElement, useEffect, useRef, useState } from 'react'
 import Container from './Container'
 import Wrap from './Wrap'
 import Flex from './Flex'
 import mergeClasses from '@/utils/mergeClasses'
 import { CaretLeft, CaretRight } from 'phosphor-react'
+import { clear } from 'console'
 
 interface CarrouselProps {
   children: JSX.Element[]
@@ -14,11 +15,17 @@ interface CarrouselProps {
 function BotaoLateral(props: {
   esquerda?: boolean
   direita?: boolean
-  children?: React.ReactNode
+  children: React.ReactNode
+  onClick: () => void
+  onMouseEnter: () => void
+  onMouseLeave: () => void
 }) {
   {
     return (
       <button
+        onClick={props.onClick}
+        onMouseEnter={props.onMouseEnter}
+        onMouseLeave={props.onMouseLeave}
         className={mergeClasses(
           `group absolute top-0 h-full cursor-pointer flex items-center justify-center px-4 focus:outline-none`,
           {
@@ -38,43 +45,123 @@ function BotaoLateral(props: {
 }
 
 const Carrousel = ({ children, slideAuto }: CarrouselProps) => {
-  const atualIndex = 0
-  const itensNumber = children.length
+  const carrouselRef = useRef<HTMLDivElement | null>(null)
+  const intervaloRef = useRef<NodeJS.Timeout | null>(null)
+  const animationRef = useRef<HTMLDivElement | null>(null)
+  const [atualIndex, setAtualIndex] = useState(0)
+  const NUMBER_OF_ITENS = children.length
+  const TEMPO = 5000
+
+  function iniciarSlide() {
+    if (!slideAuto) return
+    if (animationRef.current) {
+      animationRef.current.style.display = 'block'
+    }
+    intervaloRef.current = global.setInterval(() => {
+      if (animationRef.current) {
+        animationRef.current.style.display = 'block'
+      }
+      nextSlide()
+    }, TEMPO)
+  }
+
+  function pararSlide() {
+    if (animationRef.current) {
+      animationRef.current.style.display = 'none'
+    }
+    clearInterval(intervaloRef.current!)
+  }
+
+  useEffect(() => {
+    iniciarSlide()
+    return () => {
+      pararSlide()
+    }
+  }, [NUMBER_OF_ITENS])
+
+  useEffect(() => {
+    if (!carrouselRef.current) return
+    const childs = Array.from(carrouselRef.current.children)
+    const width = carrouselRef.current.offsetWidth
+    childs.forEach((child: any, index: number) => {
+      child.style.transform = `translateX(${(index - atualIndex) * width}px)`
+    })
+  }, [atualIndex])
+
+  function nextSlide() {
+    setAtualIndex((previousIndex: number) => {
+      return previousIndex === NUMBER_OF_ITENS - 1 ? 0 : previousIndex + 1
+    })
+  }
+
+  function previousSlide() {
+    setAtualIndex((previousIndex: number) => {
+      return previousIndex === 0 ? NUMBER_OF_ITENS - 1 : previousIndex - 1
+    })
+  }
 
   return (
-    <Wrap>
-      <Container>
+    <Wrap className="relative">
+      <Container className="relative">
         <Wrap>
-          <div className="relative rounded-lg mb-5">
+          <div
+            className="relative rounded-lg mb-5"
+            ref={carrouselRef}
+            onMouseEnter={pararSlide}
+            onMouseLeave={iniciarSlide}
+          >
             {Children.map(children, (child: JSX.Element, index) => {
               const propsChild = child.props
               return cloneElement(child, {
+                ...propsChild,
                 className: `${index === atualIndex ? '' : 'hidden'}`
               })
             })}
           </div>
           <Flex className="absolute bottom-5 left-1/2 translate-x-1/2 gap-2">
-            {Array.from({ length: itensNumber }).map((_, index) => {
+            {Array.from({ length: NUMBER_OF_ITENS }).map((_, index) => {
               return (
                 <button
                   key={index}
                   className={mergeClasses('w-3 h-3 rounded-full bg-gray-800', {
                     'bg-gray-500': index === atualIndex
                   })}
+                  onClick={() => {
+                    setAtualIndex(index)
+                  }}
                 />
               )
             })}
           </Flex>
         </Wrap>
+        <Wrap className="absolute h-1 -bottom-0">
+          <div
+            ref={animationRef}
+            onAnimationEnd={() =>
+              (animationRef.current!.style.display = 'none')
+            }
+            className="rounded-lg h-full animate-[timer_4.8s_ease-in-out] bg-gray-800"
+          ></div>
+        </Wrap>
       </Container>
       <Wrap>
-        <BotaoLateral esquerda>
+        <BotaoLateral
+          esquerda
+          onClick={previousSlide}
+          onMouseEnter={pararSlide}
+          onMouseLeave={iniciarSlide}
+        >
           <CaretLeft size={20} />
-          <span className='hidden'>Anterior</span>
+          <span className="hidden">Anterior</span>
         </BotaoLateral>
-        <BotaoLateral direita>
+        <BotaoLateral
+          direita
+          onClick={nextSlide}
+          onMouseEnter={pararSlide}
+          onMouseLeave={iniciarSlide}
+        >
           <CaretRight size={20} />
-          <span className='hidden'>Próximo</span>
+          <span className="hidden">Próximo</span>
         </BotaoLateral>
       </Wrap>
     </Wrap>
