@@ -1,14 +1,16 @@
-import mergeClasses from "@/utils/mergeClasses";
+import mergeClasses from '@/utils/mergeClasses'
 
 interface WrapProps {
-  children: React.ReactNode;
-  className?: string;
+  children: React.ReactNode
+  className?: string
 }
 
 const Wrap = ({ children, className }: WrapProps) => {
-  return ( 
-    <div className={mergeClasses("w-full overflow-hidden", className)}>{children}</div>
-   );
+  return (
+    <div className={mergeClasses('w-full overflow-hidden', className)}>
+      {children}
+    </div>
+  )
 }
- 
-export default Wrap;
+
+export default Wrap

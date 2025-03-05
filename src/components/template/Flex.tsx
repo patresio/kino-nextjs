@@ -1,19 +1,24 @@
-import mergeClasses from "@/utils/mergeClasses";
+import mergeClasses from '@/utils/mergeClasses'
 
 interface FlexProps {
-  children: React.ReactNode;
-  className?: string;
-  col?: boolean;
-  row?: boolean;
+  children: React.ReactNode
+  className?: string
+  col?: boolean
+  row?: boolean
 }
 
 const Flex = ({ children, className, col, row }: FlexProps) => {
-  return ( 
-    <div className={mergeClasses("flex justify-center items-center gap-2", {'flex-col': col, 'flex-row': row}, className)}>
+  return (
+    <div
+      className={mergeClasses(
+        'flex justify-center items-center gap-2',
+        { 'flex-col': col, 'flex-row': row },
+        className
+      )}
+    >
       {children}
     </div>
-
-   );
+  )
 }
- 
-export default Flex;
+
+export default Flex
