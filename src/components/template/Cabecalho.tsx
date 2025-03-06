@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import Flex from './Flex'
 import Wrap from './Wrap'
-import { Popcorn } from 'phosphor-react'
+import { Popcorn } from '@phosphor-icons/react'
 
 const Cabecalho = () => {
   return (

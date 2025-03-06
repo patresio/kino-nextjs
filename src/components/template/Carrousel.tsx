@@ -4,7 +4,7 @@ import Container from './Container'
 import Wrap from './Wrap'
 import Flex from './Flex'
 import mergeClasses from '@/utils/mergeClasses'
-import { CaretLeft, CaretRight } from 'phosphor-react'
+import { CaretLeft, CaretRight } from '@phosphor-icons/react'
 import { clear } from 'console'
 
 interface CarrouselProps {
@@ -118,7 +118,7 @@ const Carrousel = ({ children, slideAuto }: CarrouselProps) => {
               })
             })}
           </div>
-          <Flex className="absolute bottom-5 left-1/2 translate-x-1/2 gap-2">
+          <Flex className="bottom-5 gap-2 z-30">
             {Array.from({ length: NUMBER_OF_ITENS }).map((_, index) => {
               return (
                 <button
