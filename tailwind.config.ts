@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import colors from 'tailwindcss/colors'
 
 const config: Config = {
   content: [
@@ -6,7 +7,13 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}'
   ],
-  safelist: [{ pattern: /grid-cols-/ }, { pattern: /grid-rows-/ }],
+  safelist: [
+    'text-center',
+    'text-left',
+    'text-right',
+    { pattern: /grid-cols-/ },
+    { pattern: /grid-rows-/ }
+  ],
   theme: {
     extend: {
       animation: {
@@ -22,9 +29,17 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
+      },
+      colors: {
+        ...colors,
+        red: {
+          ...colors.red,
+          kino: '#E50914'
+        }
       }
     }
   },
   plugins: []
 }
+
 export default config
