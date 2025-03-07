@@ -26,3 +26,14 @@ type Ator = {
   imagemPerfil: string
   personagem: string
 }
+
+type AtorDetalhado = {
+  id: string
+  nome: string
+  imagemPerfil: string
+  biografia: string
+  dataNascimento: Date
+  localNascimento: string
+  genero: string
+  filmes: Filme[]
+}

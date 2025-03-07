@@ -1,25 +1,25 @@
+import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
+import { useState } from 'react'
 import Container from '../template/Container'
 import Grid from '../template/Grid'
 import Titulo from '../template/Titulo'
 import CardFilme from './CardFilme'
-import { useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
 
 interface ListaDeFilmesProps {
   filmes: Filme[]
-  className?: string
   titulo: string
   tituloPequeno?: boolean
 }
 
 const ListaDeFilmes = ({
   filmes,
-  className,
   titulo,
   tituloPequeno
 }: ListaDeFilmesProps) => {
-  const [indiceSelecionado, setIndiceSelecionado] = useState<number | null>(null)
+  const [indiceSelecionado, setIndiceSelecionado] = useState<number | null>(
+    null
+  )
   return (
     <Container>
       <Titulo

@@ -33,7 +33,7 @@ const useMovieAPI = () => {
   }
 
   async function getUltimosFilmes(): Promise<Filme[]> {
-    const { json, status } = await get('movie/now_playing')
+    const { json } = await get('movie/now_playing')
     const fatia = json.results.slice(0, 12)
     return fatia.map((item: any) => {
       return {
@@ -99,11 +99,48 @@ const useMovieAPI = () => {
     })
   }
 
+  async function getFilmesDoAtor(idAtor: string): Promise<Filme[]> {
+    const { json } = await get(`person/${idAtor}/movie_credits`)
+    return json.cast.map((item: any) => {
+      return {
+        id: item.id,
+        titulo: item.title,
+        linkImagemFundo: formatarImagemURL(item.backdrop_path),
+        linkImagemPoster: formatarImagemURL(item.poster_path),
+        nota: item.vote_average,
+        dataDeLancamento: new Date(item.release_date)
+      }
+    })
+  }
+
+  async function getAtorDetalhado(idAtor: string): Promise<AtorDetalhado> {
+    const { json } = await get(`person/${idAtor}`)
+    return {
+      id: json.id,
+      nome: json.name,
+      imagemPerfil: formatarImagemURL(json.profile_path),
+      biografia: json.biography,
+      dataNascimento: new Date(json.birthday),
+      localNascimento: json.place_of_birth,
+      genero: json.gender === 1 ? 'Feminino' : 'Masculino',
+      filmes: await getFilmesDoAtor(idAtor)
+    }
+  }
+
+  async function getImagensDoAtor(idAtor: string) {
+    const { json } = await get(`person/${idAtor}/images`)
+    return json.profiles.map((imagem: any) =>
+      formatarImagemURL(imagem.file_path)
+    )
+  }
+
   return {
     getUltimosFilmes,
     getGenerosDoFilme,
     getFilmeDetalhado,
-    getFilmesRecomendados
+    getFilmesRecomendados,
+    getAtorDetalhado,
+    getImagensDoAtor
   }
 }
 
