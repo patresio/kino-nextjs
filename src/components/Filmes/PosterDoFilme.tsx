@@ -1,5 +1,5 @@
 'use client'
-import { FilmSlate } from '@phosphor-icons/react'
+import { FilmSlate } from 'phosphor-react'
 import ImagemComFallBack from '../template/imagemComFallBack'
 import Wrap from '../template/Wrap'
 

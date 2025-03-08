@@ -1,6 +1,6 @@
 'use client'
 import Wrap from '@/components/template/Wrap'
-import { CircleNotch } from '@phosphor-icons/react'
+import { CircleNotch } from 'phosphor-react'
 
 const Carregando = () => {
   return (

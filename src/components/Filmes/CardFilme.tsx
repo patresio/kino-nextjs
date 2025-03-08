@@ -1,5 +1,5 @@
 import mergeClasses from '@/utils/mergeClasses'
-import { FilmSlate } from '@phosphor-icons/react'
+import { FilmSlate } from 'phosphor-react'
 import Flex from '../template/Flex'
 import ImagemComFallBack from '../template/imagemComFallBack'
 import Titulo from '../template/Titulo'

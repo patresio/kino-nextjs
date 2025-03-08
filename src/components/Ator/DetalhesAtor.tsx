@@ -1,5 +1,5 @@
 'use client'
-import { XCircle } from '@phosphor-icons/react'
+import { XCircle } from 'phosphor-react'
 import Descricao from '../template/Descricao'
 import Flex from '../template/Flex'
 import Titulo from '../template/Titulo'

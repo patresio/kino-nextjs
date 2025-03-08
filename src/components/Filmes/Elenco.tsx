@@ -1,5 +1,5 @@
 'use client'
-import { User } from '@phosphor-icons/react'
+import { User } from 'phosphor-react'
 import {
   AnimatePresence,
   motion,

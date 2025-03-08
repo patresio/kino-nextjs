@@ -1,5 +1,5 @@
 'use client'
-import { User } from '@phosphor-icons/react'
+import { User } from 'phosphor-react'
 import Flex from '../template/Flex'
 import ImagemComFallBack from '../template/imagemComFallBack'
 import Wrap from '../template/Wrap'

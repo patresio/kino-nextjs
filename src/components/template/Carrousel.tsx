@@ -1,6 +1,6 @@
 'use client'
 import mergeClasses from '@/utils/mergeClasses'
-import { CaretLeft, CaretRight } from '@phosphor-icons/react'
+import { CaretLeft, CaretRight } from 'phosphor-react'
 import { Children, cloneElement, useEffect, useRef, useState } from 'react'
 import Container from './Container'
 import Flex from './Flex'

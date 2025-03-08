@@ -1,6 +1,6 @@
 'use client'
 import mergeClasses from '@/utils/mergeClasses'
-import { Star } from '@phosphor-icons/react'
+import { Star } from 'phosphor-react'
 import Flex from '../template/Flex'
 
 interface NotaProps {

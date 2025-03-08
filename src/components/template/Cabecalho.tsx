@@ -1,5 +1,5 @@
 'use client'
-import { Popcorn } from '@phosphor-icons/react'
+import { Popcorn } from 'phosphor-react'
 import Link from 'next/link'
 import Flex from './Flex'
 import Wrap from './Wrap'
