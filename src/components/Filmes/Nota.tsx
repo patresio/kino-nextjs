@@ -1,6 +1,7 @@
+'use client'
+import mergeClasses from '@/utils/mergeClasses'
 import { Star } from '@phosphor-icons/react'
 import Flex from '../template/Flex'
-import mergeClasses from '@/utils/mergeClasses'
 
 interface NotaProps {
   nota: number
@@ -14,7 +15,9 @@ const Nota = ({ nota, grande }: NotaProps) => {
         weight="fill"
         className={mergeClasses('text-amber-400', grande ? 'text-3xl' : '')}
       />
-      <span className={mergeClasses('font-semibold', grande ? 'text-xl' : '')}>{nota.toFixed(1)}/10</span>
+      <span className={mergeClasses('font-semibold', grande ? 'text-xl' : '')}>
+        {nota.toFixed(1)}/10
+      </span>
     </Flex>
   )
 }

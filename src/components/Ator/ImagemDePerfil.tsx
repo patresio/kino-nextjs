@@ -1,3 +1,4 @@
+'use client'
 import { User } from '@phosphor-icons/react'
 import Flex from '../template/Flex'
 import ImagemComFallBack from '../template/imagemComFallBack'

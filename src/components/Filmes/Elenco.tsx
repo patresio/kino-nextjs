@@ -1,18 +1,18 @@
 'use client'
-import React, { useState } from 'react'
+import { User } from '@phosphor-icons/react'
 import {
-  motion,
-  useTransform,
   AnimatePresence,
+  motion,
   useMotionValue,
-  useSpring
+  useSpring,
+  useTransform
 } from 'framer-motion'
+import Link from 'next/link'
+import { useState } from 'react'
 import Container from '../template/Container'
-import Titulo from '../template/Titulo'
 import Flex from '../template/Flex'
 import ImagemComFallBack from '../template/imagemComFallBack'
-import { User } from '@phosphor-icons/react'
-import Link from 'next/link'
+import Titulo from '../template/Titulo'
 
 interface ElencoProps {
   elenco: Ator[]
@@ -44,7 +44,7 @@ const Elenco = ({ elenco }: ElencoProps) => {
       <Titulo texto="Elenco" className="mb-4" alinhar="center" />
       <Flex className="flex-wrap mt-14">
         {elenco.map((ator, i) => (
-          <Link href={`/ator/${ator.id}`}>
+          <Link href={`/ator/${ator.id}`} key={ator.id}>
             <div
               className="-mr-4  relative group"
               key={ator.id}

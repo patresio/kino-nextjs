@@ -1,6 +1,6 @@
+'use client'
 import useMovieAPI from '@/hooks/useMovieAPI'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
 import Carrousel from '../template/Carrousel'
 import Container from '../template/Container'
 import Flex from '../template/Flex'
@@ -11,23 +11,18 @@ interface AlbumProps {
   idAtor: string
 }
 
-const Album = ({ idAtor }: AlbumProps) => {
-  const [imagems, setImagems] = useState<string[][]>([])
+const Album = async ({ idAtor }: AlbumProps) => {
   const { getImagensDoAtor } = useMovieAPI()
+  const imagensResposta = await getImagensDoAtor(idAtor)
 
-  useEffect(() => {
-    getImagensDoAtor(idAtor).then(imagens => {
-      const imagensPorSlide = 3
-      let imagensRestantes = imagens
-      const resutado = []
-      while (imagensRestantes.length >= imagensPorSlide) {
-        resutado.push(imagensRestantes.splice(0, imagensPorSlide))
-      }
-      setImagems(resutado)
-    })
-  }, [])
+  const imagensPorSlide = 3
+  const imagensRestantes = imagensResposta
+  const imagens = []
+  while (imagensRestantes.length >= imagensPorSlide) {
+    imagens.push(imagensRestantes.splice(0, imagensPorSlide))
+  }
 
-  if (imagems.length <= 0) return null
+  if (imagens.length <= 0) return null
 
   return (
     <Wrap>
@@ -38,7 +33,7 @@ const Album = ({ idAtor }: AlbumProps) => {
         className="w-full"
       />
       <Carrousel slideAuto>
-        {imagems.map((grupo: string[]) => {
+        {imagens.map((grupo: string[]) => {
           return (
             <Container>
               <Flex className="justify-between">

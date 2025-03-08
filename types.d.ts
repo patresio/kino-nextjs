@@ -35,5 +35,4 @@ type AtorDetalhado = {
   dataNascimento: Date
   localNascimento: string
   genero: string
-  filmes: Filme[]
 }

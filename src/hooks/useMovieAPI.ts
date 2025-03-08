@@ -101,7 +101,8 @@ const useMovieAPI = () => {
 
   async function getFilmesDoAtor(idAtor: string): Promise<Filme[]> {
     const { json } = await get(`person/${idAtor}/movie_credits`)
-    return json.cast.map((item: any) => {
+    const fatia = json.cast.slice(0, 9)
+    return fatia.map((item: any) => {
       return {
         id: item.id,
         titulo: item.title,
@@ -122,8 +123,7 @@ const useMovieAPI = () => {
       biografia: json.biography,
       dataNascimento: new Date(json.birthday),
       localNascimento: json.place_of_birth,
-      genero: json.gender === 1 ? 'Feminino' : 'Masculino',
-      filmes: await getFilmesDoAtor(idAtor)
+      genero: json.gender === 1 ? 'Feminino' : 'Masculino'
     }
   }
 
@@ -140,7 +140,8 @@ const useMovieAPI = () => {
     getFilmeDetalhado,
     getFilmesRecomendados,
     getAtorDetalhado,
-    getImagensDoAtor
+    getImagensDoAtor,
+    getFilmesDoAtor
   }
 }
 

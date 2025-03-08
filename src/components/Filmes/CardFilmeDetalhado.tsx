@@ -2,7 +2,6 @@ import Container from '../template/Container'
 import Descricao from '../template/Descricao'
 import Flex from '../template/Flex'
 import Titulo from '../template/Titulo'
-import Elenco from './Elenco'
 import Genero from './Genero'
 import Nota from './Nota'
 import PosterDoFilme from './PosterDoFilme'
@@ -12,9 +11,6 @@ interface CardFilmeDetalhadoProps {
 }
 
 const CardFilmeDetalhado = ({ filme }: CardFilmeDetalhadoProps) => {
-
-  console.log(filme)
-
   return (
     <Container>
       <Flex
@@ -36,7 +32,7 @@ const CardFilmeDetalhado = ({ filme }: CardFilmeDetalhadoProps) => {
           <p>Duração: {filme.duracao} minutos</p>
           <p>Título original: {filme.tituloOriginal}</p>
           <Flex col className="justify-start items-start w-full">
-            <Genero idFilme={filme.id} generoPadrao={filme.generos} grande/>
+            <Genero idFilme={filme.id} generoPadrao={filme.generos} grande />
             <Nota nota={filme.nota} grande />
           </Flex>
         </Flex>
