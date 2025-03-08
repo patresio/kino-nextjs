@@ -1,11 +1,10 @@
 'use client'
-import { Children, cloneElement, useEffect, useRef, useState } from 'react'
-import Container from './Container'
-import Wrap from './Wrap'
-import Flex from './Flex'
 import mergeClasses from '@/utils/mergeClasses'
 import { CaretLeft, CaretRight } from '@phosphor-icons/react'
-import { clear } from 'console'
+import { Children, cloneElement, useEffect, useRef, useState } from 'react'
+import Container from './Container'
+import Flex from './Flex'
+import Wrap from './Wrap'
 
 interface CarrouselProps {
   children: JSX.Element[]
@@ -27,7 +26,7 @@ function BotaoLateral(props: {
         onMouseEnter={props.onMouseEnter}
         onMouseLeave={props.onMouseLeave}
         className={mergeClasses(
-          `group absolute top-0 h-full cursor-pointer flex items-center justify-center px-4 focus:outline-none`,
+          `group absolute top-0 lg:h-full h-1/2 cursor-pointer flex items-center justify-center px-4 focus:outline-none`,
           {
             'left-0': props.esquerda,
             'right-0': props.direita
@@ -102,7 +101,7 @@ const Carrousel = ({ children, slideAuto }: CarrouselProps) => {
 
   return (
     <Wrap className="relative">
-      <Container className="relative">
+      <Container className="relative w-5/6">
         <Wrap>
           <div
             className="relative rounded-lg mb-5"

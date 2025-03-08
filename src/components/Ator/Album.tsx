@@ -32,7 +32,7 @@ const Album = async ({ idAtor }: AlbumProps) => {
         alinhar="center"
         className="w-full"
       />
-      <Carrousel slideAuto>
+      <Carrousel>
         {imagens.map((grupo: string[]) => {
           return (
             <Container>

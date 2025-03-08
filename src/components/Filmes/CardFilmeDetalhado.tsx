@@ -15,14 +15,17 @@ const CardFilmeDetalhado = ({ filme }: CardFilmeDetalhadoProps) => {
     <Container>
       <Flex
         col
-        className={`bg-neutral-950 rounded-lg mt-8 p-4 md:p-8 lg:flex-row`}
+        className={`bg-neutral-950 rounded-lg mt-8 p-0 sm:p-4 md:p-8 lg:flex-row`}
       >
         <PosterDoFilme url={filme.linkImagemPoster} titulo={filme.titulo} />
-        <Flex col className="m-3 ml-8 gap-8 text-xl items-start">
+        <Flex
+          col
+          className="m-3 ml-8 gap-4 lg:gap-8 text-xl items-centeri lg:items-start"
+        >
           <Titulo
             texto={filme.titulo}
             alinhar="center"
-            className="lg:text-start"
+            className="lg:text-start my-0 lg:my-5"
           />
           <Descricao texto={filme.descricao} className="text-base" />
           <p>

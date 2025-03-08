@@ -1,13 +1,13 @@
 'use client'
+import { Popcorn } from '@phosphor-icons/react'
 import Link from 'next/link'
 import Flex from './Flex'
 import Wrap from './Wrap'
-import { Popcorn } from '@phosphor-icons/react'
 
 const Cabecalho = () => {
   return (
     <Wrap className="bg-neutral-950">
-      <header className="p-4 px-32">
+      <header className="p-2 lg:px-24 px-4 md:px-8">
         <Flex className="justify-between">
           <Link
             href="/"

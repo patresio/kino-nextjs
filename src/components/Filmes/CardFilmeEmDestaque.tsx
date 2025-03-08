@@ -17,8 +17,12 @@ const CardFilmeEmDestaque = ({
   return (
     <Container className={className}>
       <Flex className="gap-8 flex-col-reverse lg:flex-row">
-        <Flex col className="flex-1 items-start">
-          <Titulo alinhar="left" texto={filme.titulo} />
+        <Flex col className="flex-1 items-center lg:items-start">
+          <Titulo
+            alinhar="center"
+            texto={filme.titulo}
+            className="md:text-left"
+          />
           <Descricao texto={filme.descricao} className="text-justify text-xl" />
           <Link
             href={`/filmes/${filme.id}`}

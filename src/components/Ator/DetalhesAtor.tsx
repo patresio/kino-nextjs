@@ -29,7 +29,7 @@ const DetalhesAtor = ({ ator }: DetalhesAtorProps) => {
       className={`bg-zinc-900 rounded-lg w-full justify-between items-center pt-16 md:pt-20 lg:pt-26`}
     >
       <Titulo texto={ator.nome} alinhar="center" pequeno />
-      <Flex className="gap-5 flex-wrap font-semibold">
+      <Flex className="gap-5 flex-wrap font-semibold text-balance texte-center">
         {ator.genero && <span>Gênero: {ator.genero}</span>}
         {ator.dataNascimento && (
           <span>
@@ -43,7 +43,7 @@ const DetalhesAtor = ({ ator }: DetalhesAtorProps) => {
           <span>Local de Nascimento: {ator.localNascimento}</span>
         )}
       </Flex>
-      <Flex col className="p-3 flex-1">
+      <Flex col className="lg:p-3 flex-1">
         {ator.biografia ? (
           <>
             <Titulo
