@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🎬 Kino
 
-## Getting Started
+<div align="center">
+<img src="https://github.com/portfolio-projetos-dev/kino/raw/main/.gitassets/capa.png" width="350" />
 
-First, run the development server:
+<div data-badges>
+  <img src="https://img.shields.io/github/stars/portfolio-projetos-dev/kino?style=for-the-badge" alt="GitHub stars" />
+  <img src="https://img.shields.io/github/forks/portfolio-projetos-dev/kino?style=for-the-badge" alt="GitHub forks" />
+  <img src="https://img.shields.io/github/issues/portfolio-projetos-dev/kino?style=for-the-badge" alt="GitHub issues" />
+</div>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<div data-badges>
+  <img src="https://img.shields.io/badge/next.js-%23000000.svg?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js" />
+  <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React" />
+  <img src="https://img.shields.io/badge/node.js-%2343853D.svg?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
+  <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
+  <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
+</div>
+</div>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Kino é uma plataforma desenvolvida para exibir os últimos filmes lançados no mercado. A aplicação permite que os usuários visualizem e naveguem pelos últimos lançamentos permitindo que os cinéfilos de plantão possam estar sempre atualizados com os lançamentos mais recentes e descobrir novos filmes para assistir.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+A aplicação oferece uma navegação intuitiva e moderna, permitindo que os usuários explorem facilmente os últimos filmes lançados, garantindo que nenhum lançamento importante passe despercebido. Além de descobrir novos filmes, a aplicação também permite que os usuários se aprofundem no universo de cada filme através dos detalhes técnicos completos, informações sobre o elenco e fichas técnicas que proporcionam uma experiência informativa.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Além disso, a plataforma sugere automaticamente outras produções que compartilham características semelhantes ao filme selecionado, o que permite que os usuários descubram novos filmes que possam despertar seu interesse a partir de uma produção que já estejam explorando.
 
-## Learn More
+## 🖥️ Como rodar este projeto 🖥️
 
-To learn more about Next.js, take a look at the following resources:
+### Requisitos:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Node.js](https://nodejs.org/pt) instalado
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Execução:
 
-## Deploy on Vercel
+1. Clone este repositório:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```sh
+   git clone https://github.com/portfolio-projetos-dev/kino
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+2. Acesse o diretório do projeto:
+
+   ```sh
+   cd kino
+   ```
+
+3. Instale as dependências:
+
+   ```sh
+   npm install
+   ```
+
+4. Configure as variáveis de ambiente:
+
+   Será necessário criar um arquivo `.env` com as mesmas variáveis de ambiente listadas no arquivo `.env.example` na pasta raiz da aplicação e preencher esse arquivo com as variáveis de ambiente correspondentes.
+
+5. Inicie o servidor (Next.js):
+
+   ```sh
+   npm run dev
+   ```
+
+6. Acesse o projeto em [http://localhost:3000](http://localhost:3000).
+
+## 🗒️ Features do projeto 🗒️
+
+- Catálogo com os últimos filmes lançados
+- Informações completas sobre cada produção
+- Ficha técnica detalhada de cada filme
+- Dados sobre direção e aspectos técnicos do filme
+- Informações como ano de lançamento, duração e classificação indicativa
+- Galeria dos atores principais
+- Informações sobre personagens interpretados
+- Mini-biografias e principais trabalhos dos artistas
+- Recomendações de filmes relacionados
+- Interface responsiva e moderna
+
+![](https://github.com/portfolio-projetos-dev/kino/raw/main/.gitassets/2.jpg)
+
+![](https://github.com/portfolio-projetos-dev/kino/raw/main/.gitassets/3.jpg)
+
+![](https://github.com/portfolio-projetos-dev/kino/raw/main/.gitassets/4.jpg)
+
+## 💎 Links úteis 💎
+
+- [The Movie DB](https://www.themoviedb.org)
+- [Next.js](https://nextjs.org/docs)
+- [TypeScript](https://www.typescriptlang.org/docs)
+- [Shadcn](https://ui.shadcn.com)
